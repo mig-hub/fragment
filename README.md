@@ -14,7 +14,7 @@ First, how to install:
 
     sudo gem install fragment
 
-Them you can require Fragment and use it that way:
+Then you can require Fragment and use it that way:
 
     require 'fragment'
      
