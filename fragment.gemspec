@@ -8,6 +8,6 @@ Gem::Specification.new do |s|
   s.require_path = './lib'
   s.author = "Mickael Riga"
   s.email = "mig@campbellhay.com"
-  s.homepage = "http://www.campbellhay.com"
+  s.homepage = "https://github.com/mig-hub/fragment"
   s.add_development_dependency(%q<bacon>, "~> 1.1.0")
 end
