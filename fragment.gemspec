@@ -1,6 +1,6 @@
 Gem::Specification.new do |s| 
   s.name = 'fragment'
-  s.version = "0.0.1"
+  s.version = "0.0.2"
   s.platform = Gem::Platform::RUBY
   s.summary = "Another HTML builder"
   s.description = "An HTML builder heavily based on Gestalt from the Ramaze framework. Its main purpose is to create fragments (hence the name), but is perfectly suited for building full pages."
