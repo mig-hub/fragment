@@ -5,14 +5,11 @@ Fragment is an HTML builder heavily based on Gestalt from the Ramaze framework.
 Its main purpose is to create fragments of HTML (hence the name), 
 but is perfectly suited for building full pages.
 
-In essence, Fragment works more or less like any builder except that the code 
-is reduce to the minimum. Instead of trying to be universal, I would rather keep the 
-code as simple as possible and concentrate on small problems I have everyday when trying to
-write HTML via Ruby.
+In essence, Fragment works more or less like any builder. 
 
 First, how to install:
 
-    sudo gem install fragment
+    gem install fragment
 
 Then you can require Fragment and use it that way:
 
@@ -20,7 +17,7 @@ Then you can require Fragment and use it that way:
      
     default = 'HTML'
     
-    html = Fragment.please do
+    html = Fragment.create do
       doctype
       html(:lang=>'en') do
         head { title { "My Choice" } }
@@ -40,7 +37,7 @@ Then you can require Fragment and use it that way:
 If you try this example, you might notice a couple of things:
 
 First of all, you have a `doctype` helper which only creates an HTML5 doctype.
-If you want something else, you can use the `write` function which lets you write directly in place:
+If you want something else, you can use the `write` method which lets you write directly in place:
 
     write "<!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.01//EN'"
     write "  'http://www.w3.org/TR/html4/strict.dtd'>"
@@ -61,6 +58,12 @@ So what I did is that in the Hash, when a value is false, its key is removed.
 This is what I did on the long example above for marking the default option.
 
 Nothing fancy but quite good to be aware of.
+
+If you do something and want to keep the scope you are in, you can use `create_here` instead of `here`. You then have access to the methods through the fragment object passed to the block:
+
+    html = Fragment.create_here do |f|
+      f.h1 { "" }
+    end
 
 Do not hesitate to fork the project if you want to help me improve it.
 
