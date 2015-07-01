@@ -1,3 +1,5 @@
+require 'fragment/version'
+
 class Fragment
   attr_accessor :to_s
 
