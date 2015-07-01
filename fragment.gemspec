@@ -14,8 +14,8 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.require_path = './lib'
   s.files = `git ls-files`.split("\n").sort
-  # s.test_files = s.files.select { |p| p =~ /^spec\/.*_spec.rb/ }
+  s.test_files = s.files.select { |p| p =~ /^spec\/.*_spec.rb/ }
 
-  s.add_development_dependency(%q<bacon>, "~> 1.1.0")
+  s.add_development_dependency("rspec")
 end
 
