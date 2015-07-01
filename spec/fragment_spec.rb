@@ -3,7 +3,7 @@ require "fragment"
 
 RSpec.describe Fragment do
 
-  def fragment(&block); Fragment.new(&block).to_s; end
+  def fragment(&block); Fragment.create(&block); end
 
   it "Builds simple tags" do
     expect(fragment{ br }).to eq '<br />'
@@ -156,12 +156,12 @@ RSpec.describe Fragment do
     class Stranger
       attr_accessor :name, :comment
       def show_comment
-        Fragment.new(true) do |b|
+        Fragment.create do |b|
           b.p{ self.comment }
-        end.to_s
+        end
       end
       def show_summary
-        Fragment.create_here do |b|
+        Fragment.create do |b|
           b.article do
             b.h1{ self.name }
             b.p{ self.comment }

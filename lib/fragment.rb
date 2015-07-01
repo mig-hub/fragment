@@ -3,13 +3,17 @@ require 'fragment/version'
 class Fragment
   attr_accessor :to_s
 
-  def self.create(&block); self.new(false,&block).to_s; end
-  def self.create_here(&block); self.new(true,&block).to_s; end
+  def self.create(&block); self.new(&block).to_s; end
+  # create_here is kept for backward compatibility
+  def self.create_here(&block); self.new(&block).to_s; end
 
   def initialize outer_scope=false, &block
+    # outer_scope argument is kept for backward compatibility
+    # but it is not used
+    # checking is simpler with arity instead
     @to_s = ""
     return self unless block_given?
-    unless outer_scope
+    if block.arity==0
       instance_eval(&block)
     else
       block.call(self)
